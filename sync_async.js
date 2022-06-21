@@ -11,4 +11,4 @@ fs.readFile('data.txt', {encoding:'utf8'}, (err, data) => {
     console.log(3);
     console.log(data);
 })
-console.log(4);햣
+console.log(4);
