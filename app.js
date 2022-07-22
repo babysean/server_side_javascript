@@ -31,8 +31,10 @@ app.get('/topic', (req, res) => {
 
     res.send(output)
 })
-app.get('/param/:module_id/:topic_id', (req, res) => {
-    res.json(req.params)
+
+// Semantic URL
+app.get('/topic/:id/:mode', (req, res) => {
+    res.json(req.params.id+','+req.params.mode)
 })
 
 // /template 으로 접속했을 때 실행될 함수
