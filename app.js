@@ -14,6 +14,27 @@ app.set('views', './views')
 // public 이라는 디렉토리에 있는 정적인 파일 제공
 app.use(express.static('public'));
 
+// query string 사용
+app.get('/topic', (req, res) => {
+    let topics = [
+        'Javascript is ...',
+        'Nodejs is ...',
+        'Express is ...'
+    ]
+
+    let output = `
+        <a href='/topic?id=0'>JavaScript</a><br>
+        <a href='/topic?id=1'>NodeJs</a><br>
+        <a href='/topic?id=2'>Express</a><br>
+        ${topics[req.query.id]}
+    `
+
+    res.send(output)
+})
+app.get('/param/:module_id/:topic_id', (req, res) => {
+    res.json(req.params)
+})
+
 // /template 으로 접속했을 때 실행될 함수
 app.get('/template', (req, res) => {
     // temp 파일을 렌터링해서 전송
