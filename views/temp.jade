@@ -1,0 +1,12 @@
+html
+    head
+        <!-- = 로 받아온 변수 삽입 -->
+        title= _title
+    body
+        h1 Hello Jade
+        ul
+            <!-- - 를 앞에 붙이면 javascript로 인식 -->
+            -for(let i=0 ; i<5 ; i++)
+                li coding
+        <!-- javascript 에서 받아온 변수 사용 -->
+        div= time

@@ -1,10 +1,25 @@
 /* main application */
 
-var express = require('express')
-var app = express()
+let express = require('express')
+let app = express()
+
+// 웹페이지 소스 정렬
+app.locals.pretty = true;
+
+// jade 템플릿 엔진과 express를 연결
+app.set('view engine', 'jade')
+// 템플릿이 있는 폴더를 설정 (Default Folder : ./views)
+app.set('views', './views')
 
 // public 이라는 디렉토리에 있는 정적인 파일 제공
 app.use(express.static('public'));
+
+// /template 으로 접속했을 때 실행될 함수
+app.get('/template', (req, res) => {
+    // temp 파일을 렌터링해서 전송
+    // options 로 변수 전달하여 jade 파일에서 사용
+    res.render('temp', {time: Date(), _title: 'Jade'});
+})
 
 // 사용자가 /로 접속했을 때 실행될 함수
 app.get('/', (req, res) => {
