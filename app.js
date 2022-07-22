@@ -13,7 +13,7 @@ app.get('/login', (req, res) => {
     res.send('<h1>Login please</h1>');
 })
 
-// service port set
+// 서비스 포트 설정, 3000
 app.listen(3000, () => {
     console.log('Connected 3000 port!')
 });
